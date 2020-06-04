@@ -1,0 +1,23 @@
+PODS:
+  - FlexLayout (0.1.0)
+  - LookinServer (1.0.0)
+
+DEPENDENCIES:
+  - FlexLayout (from `../`)
+  - LookinServer
+
+SPEC REPOS:
+  https://cdn.cocoapods.org/:
+    - LookinServer
+
+EXTERNAL SOURCES:
+  FlexLayout:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  FlexLayout: 1809e9cdfc9338f81b58ecd7c33cebe4d0627c80
+  LookinServer: 0002891cd3cec5e082a910e897dfe71b4f06b89e
+
+PODFILE CHECKSUM: 49a96548cf9d96d59256f626667fd0900c9417b9
+
+COCOAPODS: 1.9.1

@@ -2,10 +2,6 @@ use_frameworks!
 
 target 'FlexLayout_Example' do
   pod 'FlexLayout', :path => '../'
+  pod 'LookinServer', :configurations => ['Debug']
 
-  target 'FlexLayout_Tests' do
-    inherit! :search_paths
-
-    
-  end
 end
