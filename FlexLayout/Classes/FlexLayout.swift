@@ -52,7 +52,7 @@ public struct FlexLayout {
         for s in size {
             switch s {
             case .fixed(let view, let value):
-                switch space {
+                switch nextSpace {
                 case .fixed(let _value):
                     totalSize += _value
                 case .grow(let _scale):
@@ -62,7 +62,7 @@ public struct FlexLayout {
                 nextSpace = space
                 fixed.append((view: view, size: value))
             case .grow(let view, let scale):
-                switch space {
+                switch nextSpace {
                 case .fixed(let _value):
                     totalSize += _value
                 case .grow(let _scale):
@@ -75,7 +75,7 @@ public struct FlexLayout {
                 nextSpace = value
             }
         }
-        switch space {
+        switch nextSpace {
         case .fixed(let _value):
             totalSize += _value
         case .grow(let _scale):
