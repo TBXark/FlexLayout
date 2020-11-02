@@ -183,7 +183,7 @@ public struct FlexLayout {
                     }
                 case .stretch(let view, let margin):
                     view.frame.size.height = end - start - (margin?.bottom ?? 0) - (margin?.top ?? 0)
-                    view.frame.origin.y = margin?.top ?? 0
+                    view.frame.origin.y = start + (margin?.top ?? 0)
                 }
             }
         case .vertical:
@@ -201,7 +201,7 @@ public struct FlexLayout {
                     }
                 case .stretch(let view, let margin):
                     view.frame.size.width = end - start - (margin?.left ?? 0) - (margin?.right ?? 0)
-                    view.frame.origin.x = margin?.left ?? 0
+                    view.frame.origin.x = start + (margin?.left ?? 0)
                 }
             }
         }
