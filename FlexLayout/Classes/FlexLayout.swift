@@ -8,6 +8,9 @@
 
 import UIKit
 
+public typealias FL = FlexLayout
+
+// MARK: - FlexLayoutViewType
 public protocol FlexLayoutViewType: class {
     var frame: CGRect { get set }
 }
@@ -20,8 +23,12 @@ extension FlexLayoutViewType {
     }
 }
 
-public typealias FL = FlexLayout
 
+protocol FlexLayoutBuilderContainer: FlexLayoutViewType {
+    var builder: (CGRect) -> Void {get }
+}
+
+// MARK: - FlexLayout
 @_functionBuilder
 public struct FlexLayout {
     
@@ -93,7 +100,7 @@ extension FlexLayout {
         }
     }
     
-    public class Virtual: FlexLayoutViewType {
+    public class Virtual: FlexLayoutBuilderContainer {
         public var frame: CGRect = .zero
         public var builder: (CGRect) -> Void
         
@@ -103,7 +110,7 @@ extension FlexLayout {
         }
     }
     
-    public class Bind: FlexLayoutViewType {
+    public class Bind: FlexLayoutBuilderContainer {
         public var view: FlexLayoutViewType
         public var builder: (CGRect) -> Void
         
@@ -120,25 +127,6 @@ extension FlexLayout {
         public init(_ view: FlexLayoutViewType, _ builder: @escaping (CGRect) -> Void) {
             self.view = view
             self.builder = builder
-        }
-    }
-    
-    public class Expan: FlexLayoutViewType {
-        public var view: FlexLayoutViewType
-        public var builder: (CGRect) -> Void
-        public var frame: CGRect {
-            get {
-                return view.frame
-            }
-            set {
-                view.frame = newValue
-            }
-        }
-        
-        public init(_ view: FlexLayoutViewType, maxSize: CGSize,  _ builder: @escaping (CGRect) -> Void) {
-            self.view = view
-            self.builder = builder
-            builder(CGRect(origin: .zero, size: maxSize))
         }
     }
     
@@ -293,9 +281,7 @@ extension FlexLayout {
         FlexLayout.layoutMainAxis(layouts: layout, direction: direction, align: align, start: ms, end: me)
         FlexLayout.layoutCorssAxis(layouts: layout, direction: direction, start: cs, end: ce)
         for l in layout {
-            if let v = l.view as? Virtual {
-                v.builder(v.frame)
-            } else if let v = l.view as? Bind {
+            if let v = l.view as? FlexLayoutBuilderContainer {
                 v.builder(v.frame)
             }
         }
