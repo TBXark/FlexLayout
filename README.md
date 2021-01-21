@@ -27,27 +27,27 @@ FL.V(frame: view.bounds) {
     FL.Bind(userInfoContent) { rect in
         FL.H(size: rect.size) {
             FL.Space.fixed(20)
-            self.avatarImgv.stack(main: .fixed(60), cross: .fixed(60, offset: 20, align: .start))
+            self.avatarImgv.with(main: .fixed(60), cross: .fixed(60, offset: 20, align: .start))
             FL.Space.fixed(20)
             FL.Virtual { rect in
                 FL.V(frame: rect) {
                     FL.Space.fixed(20)
-                    self.titleLabel.stack(main: .fixed(30))
+                    self.titleLabel.with(main: .fixed(30))
                     FL.Space.grow()
                     FL.Virtual { rect in
                         FL.H(frame: rect) {
-                            self.linkName.stack(main: .fixed(40))
-                            self.linkLabel.stack(main: .grow)
+                            self.linkName.with(main: .fixed(40))
+                            self.linkLabel.with(main: .grow)
                         }
-                    }.stack(main: .fixed(20))
+                    }.with(main: .fixed(20))
                     FL.Space.fixed(20)
                 }
-            }.stack(main: .grow)
+            }.with(main: .grow)
             FL.Space.fixed(20)
         }
-    }.stack(main: .fixed(100), cross: .stretch(margin: (start: 20, end: 20)))
+    }.with(main: .fixed(100), cross: .stretch(margin: (start: 20, end: 20)))
     FL.Space.grow()
-    self.bottomBar.stack(main: .fixed(60), cross: .stretch(margin: (start: 20, end: 20)))
+    self.bottomBar.with(main: .fixed(60), cross: .stretch(margin: (start: 20, end: 20)))
     if #available(iOS 11.0, *) {
         FL.Space.fixed(self.view.safeAreaInsets.bottom)
     } else {

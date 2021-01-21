@@ -18,7 +18,7 @@ public protocol FlexLayoutViewType: class {
 extension UIView: FlexLayoutViewType {}
 
 extension FlexLayoutViewType {
-    public func stack(main: FlexLayout.Size, cross: FlexLayout.Cross = .grow) -> FlexLayout {
+    public func with(main: FlexLayout.Size, cross: FlexLayout.Cross = .grow) -> FlexLayout {
         return FlexLayout(view: self, main: main, cross: cross)
     }
 }
@@ -112,15 +112,15 @@ extension FlexLayout {
         }
         
         public static func fixed(_ value: CGFloat) -> FlexLayout {
-            return Space().stack(main: .fixed(value))
+            return Space().with(main: .fixed(value))
         }
         
         public static func grow() -> FlexLayout {
-            return Space().stack(main: .grow)
+            return Space().with(main: .grow)
         }
         
         public static func stretch(_ value: CGFloat) -> FlexLayout {
-            return Space().stack(main: .stretch(value))
+            return Space().with(main: .stretch(value))
         }
     }
     
