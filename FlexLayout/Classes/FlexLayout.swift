@@ -28,18 +28,42 @@ protocol FlexLayoutBuilderContainer: FlexLayoutViewType {
     var builder: (CGRect) -> Void {get }
 }
 
+public protocol _FlexLayout {
+    func flatten() -> [FlexLayout]
+}
+
+extension Array: _FlexLayout where Element: _FlexLayout {
+    public func flatten() -> [FlexLayout] {
+        return self.flatMap({ $0.flatten() })
+    }
+}
+
 // MARK: - FlexLayout
 @_functionBuilder
-public struct FlexLayout {
-    
-   
-   
+public struct FlexLayout: _FlexLayout {
+       
     public var view: FlexLayoutViewType
     public var main: Size
     public var cross: Cross
     
-    public static func buildBlock(_ components: FlexLayout...) -> [FlexLayout] {
-        return components
+    public func flatten() -> [FlexLayout] {
+        return [self]
+    }
+    
+    public static func buildBlock(_ components: _FlexLayout...) -> [FlexLayout] {
+        return components.flatMap({ $0.flatten() })
+    }
+
+    public static func buildIf(_ content: _FlexLayout?) -> _FlexLayout {
+        return content ?? [FlexLayout]()
+    }
+
+    public static func buildEither(first: _FlexLayout) -> _FlexLayout {
+        return first
+    }
+
+    public static func buildEither(second: _FlexLayout) -> _FlexLayout {
+        return second
     }
 }
 
@@ -277,7 +301,7 @@ extension FlexLayout {
     ///   - ce: Corss axis end value
     ///   - builder: builder
     public static func layout(_ direction: FlexLayout.Direction, align: FlexLayout.Align = .start, ms: CGFloat = 0, me: CGFloat, cs: CGFloat = 0, ce: CGFloat, @FlexLayout _ builder: () -> [FlexLayout]) {
-        let layout = builder()
+        let layout = builder().flatMap({ $0.flatten() })
         FlexLayout.layoutMainAxis(layouts: layout, direction: direction, align: align, start: ms, end: me)
         FlexLayout.layoutCorssAxis(layouts: layout, direction: direction, start: cs, end: ce)
         for l in layout {

@@ -64,7 +64,7 @@ class ViewController: UIViewController {
         view.addSubview(clTest2)
 
         FL.V(frame: view.bounds) {
-            FL.Space.fixed(40)
+            FL.Space.fixed(20)
             FL.Bind(userInfoContent) { rect in
                 FL.H(size: rect.size) {
                     FL.Space.fixed(20)

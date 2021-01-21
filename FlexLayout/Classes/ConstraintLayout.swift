@@ -11,29 +11,23 @@
 infix operator |== : ComparisonPrecedence
 infix operator |>= : ComparisonPrecedence
 infix operator |<= : ComparisonPrecedence
+
 public typealias CL = ConstraintLayout
 
-public protocol ConstraintLayoutType {
-    func toNSLayoutConstraintList() -> [NSLayoutConstraint]
+public protocol ConstraintLayoutValue {
+    func flatten() -> [NSLayoutConstraint]
 }
 
-extension NSLayoutConstraint: ConstraintLayoutType {
-    public func toNSLayoutConstraintList() -> [NSLayoutConstraint] {
+
+extension NSLayoutConstraint: ConstraintLayoutValue {
+    public func flatten() -> [NSLayoutConstraint] {
         return [self]
     }
 }
 
-extension Array: ConstraintLayoutType where Element == ConstraintLayoutType {
-    public func toNSLayoutConstraintList() -> [NSLayoutConstraint] {
-        var temp = [NSLayoutConstraint]()
-        for c in self {
-            if let lc = c as? NSLayoutConstraint {
-                temp.append(lc)
-            } else {
-                temp.append(contentsOf: c.toNSLayoutConstraintList())
-            }
-        }
-        return temp
+extension Array: ConstraintLayoutValue where Element: ConstraintLayoutValue {
+    public func flatten() -> [NSLayoutConstraint] {
+        return self.flatMap({ $0.flatten() })
     }
 }
 
@@ -45,9 +39,25 @@ extension UIView {
 
 @_functionBuilder
 public struct ConstraintLayout {
-    public static func buildBlock(_ components: ConstraintLayoutType...) -> [NSLayoutConstraint] {
-        return components.toNSLayoutConstraintList()
+    
+    public static func buildBlock(_ components: ConstraintLayoutValue...) -> [NSLayoutConstraint] {
+        return components.flatMap({ $0.flatten() })
     }
+
+    public static func buildIf(_ content: ConstraintLayoutValue?) -> ConstraintLayoutValue {
+        return content ?? [NSLayoutConstraint]()
+    }
+
+    public static func buildEither(first: ConstraintLayoutValue) -> ConstraintLayoutValue {
+        return first
+    }
+
+    public static func buildEither(second: ConstraintLayoutValue) -> ConstraintLayoutValue {
+        return second
+    }
+}
+
+extension ConstraintLayout {
     public static func layout(_ view: UIView, @ConstraintLayout _ builder: () -> [NSLayoutConstraint]) {
         view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate(builder())
@@ -86,15 +96,15 @@ public func |<= (lhs: NSLayoutDimension, rhs: CGFloat) -> NSLayoutConstraint {
     return lhs.constraint(lessThanOrEqualToConstant: rhs)
 }
 
-public func |== (lhs: [NSLayoutDimension], rhs: CGFloat) -> ConstraintLayoutType {
+public func |== (lhs: [NSLayoutDimension], rhs: CGFloat) -> ConstraintLayoutValue {
     return lhs.map { $0.constraint(equalToConstant: rhs) }
 }
 
-public func |>= (lhs: [NSLayoutDimension], rhs: CGFloat) -> ConstraintLayoutType {
+public func |>= (lhs: [NSLayoutDimension], rhs: CGFloat) -> ConstraintLayoutValue {
     return lhs.map { $0.constraint(greaterThanOrEqualToConstant: rhs) }
 }
 
-public func |<= (lhs: [NSLayoutDimension], rhs: CGFloat) -> ConstraintLayoutType {
+public func |<= (lhs: [NSLayoutDimension], rhs: CGFloat) -> ConstraintLayoutValue {
     return lhs.map { $0.constraint(lessThanOrEqualToConstant: rhs) }
 }
 
@@ -111,15 +121,15 @@ public func |<= <Anchor>(lhs: NSLayoutAnchor<Anchor>, rhs: NSLayoutAnchor<Anchor
     return lhs.constraint(lessThanOrEqualTo: rhs)
 }
 
-public func |== <Anchor>(lhs: [NSLayoutAnchor<Anchor>], rhs: NSLayoutAnchor<Anchor>) -> ConstraintLayoutType where Anchor: AnyObject {
+public func |== <Anchor>(lhs: [NSLayoutAnchor<Anchor>], rhs: NSLayoutAnchor<Anchor>) -> ConstraintLayoutValue where Anchor: AnyObject {
     return lhs.map { $0.constraint(equalTo: rhs) }
 }
 
-public func |>= <Anchor>(lhs: [NSLayoutAnchor<Anchor>], rhs: NSLayoutAnchor<Anchor>) -> ConstraintLayoutType where Anchor: AnyObject {
+public func |>= <Anchor>(lhs: [NSLayoutAnchor<Anchor>], rhs: NSLayoutAnchor<Anchor>) -> ConstraintLayoutValue where Anchor: AnyObject {
     return lhs.map { $0.constraint(greaterThanOrEqualTo: rhs) }
 }
 
-public func |<= <Anchor>(lhs: [NSLayoutAnchor<Anchor>], rhs: NSLayoutAnchor<Anchor>) -> ConstraintLayoutType where Anchor: AnyObject {
+public func |<= <Anchor>(lhs: [NSLayoutAnchor<Anchor>], rhs: NSLayoutAnchor<Anchor>) -> ConstraintLayoutValue where Anchor: AnyObject {
     return lhs.map { $0.constraint(lessThanOrEqualTo: rhs) }
 }
 
@@ -146,15 +156,15 @@ public func |<= <Anchor>(lhs: NSLayoutAnchor<Anchor>, rhs: NSLayoutAnchorWithCon
     return lhs.constraint(lessThanOrEqualTo: rhs.anchor, constant: rhs.constant)
 }
 
-public func |== <Anchor>(lhs: [NSLayoutAnchor<Anchor>], rhs: NSLayoutAnchorWithConst<Anchor>) -> ConstraintLayoutType where Anchor: AnyObject {
+public func |== <Anchor>(lhs: [NSLayoutAnchor<Anchor>], rhs: NSLayoutAnchorWithConst<Anchor>) -> ConstraintLayoutValue where Anchor: AnyObject {
     return lhs.map { $0.constraint(equalTo: rhs.anchor, constant: rhs.constant) }
 }
 
-public func |>= <Anchor>(lhs: [NSLayoutAnchor<Anchor>], rhs: NSLayoutAnchorWithConst<Anchor>) -> ConstraintLayoutType where Anchor: AnyObject {
+public func |>= <Anchor>(lhs: [NSLayoutAnchor<Anchor>], rhs: NSLayoutAnchorWithConst<Anchor>) -> ConstraintLayoutValue where Anchor: AnyObject {
     return lhs.map { $0.constraint(greaterThanOrEqualTo: rhs.anchor, constant: rhs.constant) }
 }
 
-public func |<= <Anchor>(lhs: [NSLayoutAnchor<Anchor>], rhs: NSLayoutAnchorWithConst<Anchor>) -> ConstraintLayoutType where Anchor: AnyObject {
+public func |<= <Anchor>(lhs: [NSLayoutAnchor<Anchor>], rhs: NSLayoutAnchorWithConst<Anchor>) -> ConstraintLayoutValue where Anchor: AnyObject {
     return lhs.map { $0.constraint(lessThanOrEqualTo: rhs.anchor, constant: rhs.constant) }
 }
 
@@ -181,14 +191,14 @@ public func |<= (lhs: NSLayoutDimension, rhs: NSLayoutAnchorWithMultiplier) -> N
     return lhs.constraint(lessThanOrEqualTo: rhs.anchor, multiplier: rhs.multiplier, constant: rhs.constant)
 }
 
-public func |== (lhs: [NSLayoutDimension], rhs: NSLayoutAnchorWithMultiplier) -> ConstraintLayoutType {
+public func |== (lhs: [NSLayoutDimension], rhs: NSLayoutAnchorWithMultiplier) -> ConstraintLayoutValue {
     return lhs.map { $0.constraint(equalTo: rhs.anchor, multiplier: rhs.multiplier, constant: rhs.constant) }
 }
 
-public func |>= (lhs: [NSLayoutDimension], rhs: NSLayoutAnchorWithMultiplier) -> ConstraintLayoutType {
+public func |>= (lhs: [NSLayoutDimension], rhs: NSLayoutAnchorWithMultiplier) -> ConstraintLayoutValue {
     return lhs.map { $0.constraint(greaterThanOrEqualTo: rhs.anchor, multiplier: rhs.multiplier, constant: rhs.constant) }
 }
 
-public func |<= (lhs: [NSLayoutDimension], rhs: NSLayoutAnchorWithMultiplier) -> ConstraintLayoutType {
+public func |<= (lhs: [NSLayoutDimension], rhs: NSLayoutAnchorWithMultiplier) -> ConstraintLayoutValue {
     return lhs.map { $0.constraint(lessThanOrEqualTo: rhs.anchor, multiplier: rhs.multiplier, constant: rhs.constant) }
 }
