@@ -25,6 +25,56 @@ public typealias FL = FlexLayout
 @_functionBuilder
 public struct FlexLayout {
     
+   
+   
+    public var view: FlexLayoutViewType
+    public var main: Size
+    public var cross: Cross
+    
+    public static func buildBlock(_ components: FlexLayout...) -> [FlexLayout] {
+        return components
+    }
+}
+
+extension FlexLayout {
+    public typealias Insets = (start: CGFloat, end: CGFloat)
+
+    public enum Size {
+        public static let grow = Size.stretch(1)
+        case fixed(CGFloat)
+        case stretch(CGFloat)
+    }
+    
+    public enum Align {
+        case start
+        case center
+        case end
+    }
+    
+    public enum Direction {
+        case vertical
+        case horizontal
+    }
+    
+    public enum Cross {
+        public static let grow = Cross.stretch(margin: (start: 0, end: 0))
+        public static func start(_ value: CGFloat) -> Cross {
+            return .fixed(value, offset: 0, align: .start)
+        }
+        public static func center(_ value: CGFloat) -> Cross {
+            return .fixed(value, offset: 0, align: .center)
+        }
+        public static func end(_ value: CGFloat) -> Cross {
+            return .fixed(value, offset: 0, align: .end)
+        }
+        
+        case fixed(CGFloat, offset: CGFloat, align: Align)
+        case stretch(margin: (start: CGFloat, end: CGFloat))
+    }
+    
+}
+
+extension FlexLayout {
     public class Space: FlexLayoutViewType {
         public var frame: CGRect = .zero
         public init() {
@@ -73,57 +123,6 @@ public struct FlexLayout {
         }
     }
     
-    
-    public enum Size {
-        public static let grow = Size.stretch(1)
-        case fixed(CGFloat)
-        case stretch(CGFloat)
-    }
-    
-    public enum Align {
-        case start
-        case center
-        case end
-    }
-    
-    public enum Direction {
-        case vertical
-        case horizontal
-    }
-    
-    public struct Insets {
-        public static let zero = Insets(start: 0, end: 0)
-        var start: CGFloat
-        var end: CGFloat
-        public init(start: CGFloat, end: CGFloat) {
-            self.start = start
-            self.end = end
-        }
-    }
-    
-    public enum Cross {
-        public static let grow = Cross.stretch(margin: Insets.zero)
-        public static func start(_ value: CGFloat) -> Cross {
-            return .fixed(value, offset: 0, align: .start)
-        }
-        public static func center(_ value: CGFloat) -> Cross {
-            return .fixed(value, offset: 0, align: .center)
-        }
-        public static func end(_ value: CGFloat) -> Cross {
-            return .fixed(value, offset: 0, align: .end)
-        }
-        
-        case fixed(CGFloat, offset: CGFloat, align: Align)
-        case stretch(margin: Insets)
-    }
-    
-    public var view: FlexLayoutViewType
-    public var main: Size
-    public var cross: Cross
-    
-    public static func buildBlock(_ components: FlexLayout...) -> [FlexLayout] {
-        return components
-    }
 }
 
 extension FlexLayout {
