@@ -12,7 +12,7 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-![demo](./demo.png)
+![demo](./demo.jpeg)
 
 
 ```swift
@@ -48,11 +48,16 @@ FL.V(frame: view.bounds) {
 }
 
 
-CL.layout(centerTest) {
-    centerTest.centerXAnchor |== view.centerXAnchor
-    centerTest.centerYAnchor |== view.centerYAnchor + 100
-    centerTest.heightAnchor |== 100
-    centerTest.widthAnchor |== centerTest.heightAnchor
+CL.layout(clTest) {
+    clTest.centerXAnchor |== view.centerXAnchor
+    clTest.centerYAnchor |== view.centerYAnchor + 100
+    (clTest.heightAnchor & clTest.widthAnchor) |== 100
+}
+
+CL.layout(clTest2) {
+    clTest2.sizeAnchor |== clTest.widthAnchor
+    clTest2.centerXAnchor |== clTest.centerXAnchor
+    clTest2.bottomAnchor |== bottomBar.topAnchor
 }
 
 

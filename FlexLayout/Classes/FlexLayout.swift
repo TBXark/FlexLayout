@@ -65,32 +65,32 @@ public struct FlexLayout {
                 view.frame = newValue
             }
         }
-
+        
         
         public init(_ view: FlexLayoutViewType, _ builder: @escaping (CGRect) -> Void) {
             self.view = view
             self.builder = builder
         }
     }
-
-   
+    
+    
     public enum Size {
         public static let grow = Size.stretch(1)
         case fixed(CGFloat)
         case stretch(CGFloat)
     }
-
+    
     public enum Align {
         case start
         case center
         case end
     }
-
+    
     public enum Direction {
         case vertical
         case horizontal
     }
-
+    
     public enum Cross {
         public static let grow = Cross.stretch(margin: UIEdgeInsets.zero)
         public static func start(_ value: CGFloat) -> Cross {
@@ -102,7 +102,7 @@ public struct FlexLayout {
         public static func end(_ value: CGFloat) -> Cross {
             return .fixed(value, offset: 0, align: .end)
         }
-
+        
         case fixed(CGFloat, offset: CGFloat, align: Align)
         case stretch(margin: UIEdgeInsets)
     }
@@ -118,10 +118,10 @@ public struct FlexLayout {
 
 extension FlexLayout {
     private static func layoutMainAxis(layouts: [FlexLayout], direction: FlexLayout.Direction, align: FlexLayout.Align, start: CGFloat, end: CGFloat) {
-
+        
         var totalSize = CGFloat.zero
         var totalGrow = CGFloat.zero
-
+        
         for l in layouts {
             switch l.main {
             case .fixed(let value):
@@ -132,7 +132,7 @@ extension FlexLayout {
         }
         let growValue = (end - start - totalSize) / totalGrow
         var startPosition = start
-
+        
         if totalGrow.isZero {
             switch align {
             case .start:
@@ -143,7 +143,7 @@ extension FlexLayout {
                 startPosition = (end - totalSize)
             }
         }
-
+        
         switch direction {
         case .horizontal:
             for l in layouts {
@@ -171,7 +171,7 @@ extension FlexLayout {
                     startPosition = l.view.frame.maxY
                 }
             }
-
+            
         }
     }
     

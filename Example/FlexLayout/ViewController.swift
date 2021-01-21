@@ -46,9 +46,13 @@ class ViewController: UIViewController {
             $0.layer.masksToBounds = true
         })
         
-        let centerTest = UIView().then({
+        let clTest = UIView().then({
             $0.backgroundColor = UIColor.yellow
         })
+        let clTest2 = UIView().then({
+            $0.backgroundColor = UIColor.red
+        })
+
         
         userInfoContent.addSubview(avatarImgv)
         userInfoContent.addSubview(titleLabel)
@@ -56,8 +60,9 @@ class ViewController: UIViewController {
         userInfoContent.addSubview(linkLabel)
         view.addSubview(userInfoContent)
         view.addSubview(bottomBar)
-        view.addSubview(centerTest)
-        
+        view.addSubview(clTest)
+        view.addSubview(clTest2)
+
         FL.V(frame: view.bounds) {
             FL.Space.fixed(40)
             FL.Bind(userInfoContent) { rect in
@@ -87,14 +92,17 @@ class ViewController: UIViewController {
             FL.Space.fixed(40)
         }
         
-      
-        CL.layout(centerTest) {
-            centerTest.centerXAnchor |== view.centerXAnchor
-            centerTest.centerYAnchor |== view.centerYAnchor + 100
-            centerTest.heightAnchor |== 100
-            centerTest.widthAnchor |== centerTest.heightAnchor
-        }
         
+        CL.layout(clTest) {
+            clTest.centerXAnchor |== view.centerXAnchor
+            clTest.centerYAnchor |== view.centerYAnchor + 100
+            (clTest.heightAnchor & clTest.widthAnchor) |== 100
+        }
+        CL.layout(clTest2) {
+            clTest2.sizeAnchor |== clTest.widthAnchor
+            clTest2.centerXAnchor |== clTest.centerXAnchor
+            clTest2.bottomAnchor |== bottomBar.topAnchor
+        }
     }
     
     override func didReceiveMemoryWarning() {
