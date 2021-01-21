@@ -19,70 +19,70 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		08DD78CF91A993BB665F225E24341083 /* FlexLayout-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4C2F8EF7C13CF01A56F2C95E34C736 /* FlexLayout-dummy.m */; };
-		1C84AAA09052BA51F25775DF753E8D7C /* FrameLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6186F2FC1FEA8E1EFBC48E21351F25 /* FrameLayout.swift */; };
-		47E3F1C39BD8DF0BE7DE52A03509BD5B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		6356B48CDF6760D84859DD86A82E8B08 /* FlexLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CEFA08910700146A00F277E076750B /* FlexLayout.swift */; };
-		7226DF8BDBCE723FACEA888AB86ADCFE /* Pods-FlexLayout_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 799ACA6407000808DDF11F30A646C13C /* Pods-FlexLayout_Example-dummy.m */; };
-		795482707A8BDE71C440FAF940B1CA3E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		7D8169EFA70FD3DF9B6A51E1BA9797D8 /* Pods-FlexLayout_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E4B19FDFAA117B758E5E33815CFA868C /* Pods-FlexLayout_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9536EB4A20473990524A572C777BCAA6 /* FlexLayout-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D22C3C71074E05E6450DA1CC2480E22 /* FlexLayout-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2C55A859135E4C25F16D326E0061CA5C /* Pods-FlexLayout_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 799ACA6407000808DDF11F30A646C13C /* Pods-FlexLayout_Example-dummy.m */; };
+		2CA76ACA2A2FBCAE19CB801A81CDB2FC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		392B3698173C3DBBF627A24F6A324EF4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		498DD6A5731334FE5853A1515FE095FA /* ConstraintLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8408D19C16320F44E33C8D94440D83 /* ConstraintLayout.swift */; };
+		9536EB4A20473990524A572C777BCAA6 /* FlexLayout-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A53DD4D16F8BA8845BE0DCC7E61B9D2C /* FlexLayout-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A7AA4BCBD3B8132C75B694942EEABC80 /* FlexLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEF3735C7014DA0E0E36778353FC060 /* FlexLayout.swift */; };
+		AF40563BF066F71958C7EA9A5AE37A43 /* Pods-FlexLayout_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E4B19FDFAA117B758E5E33815CFA868C /* Pods-FlexLayout_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B6015054D3E7F88984B29D9F3B8D1565 /* FlexLayout-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4623F1AFE69AB08A06A82BBBD49FA4E7 /* FlexLayout-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2C461636B28499D9AD06F102A7928F63 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9B669057662AC2963D287EC448129F48;
-			remoteInfo = FlexLayout;
-		};
-		F775095482CF213EFC0E76FF716E4C2C /* PBXContainerItemProxy */ = {
+		12B55620F3785F8E2A70705DCA9A1742 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 638FEAAFC575BB76BC6AC055CDDA3506;
 			remoteInfo = LookinServer;
 		};
+		4259AFE7B0126804EF580F5B3AEFBF7E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9B669057662AC2963D287EC448129F48;
+			remoteInfo = FlexLayout;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		03847D660A186D2408746EBFE7259653 /* Pods-FlexLayout_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FlexLayout_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		08D35CB6ADF641EF5ED06FFFEF2EADB8 /* Pods-FlexLayout_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FlexLayout_Example-Info.plist"; sourceTree = "<group>"; };
-		12AB8111F98BF03A3EF48E48C90F39AA /* FlexLayout.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FlexLayout.modulemap; sourceTree = "<group>"; };
-		13EA4E1320CC98EA43D54C200BC19B81 /* FlexLayout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FlexLayout.release.xcconfig; sourceTree = "<group>"; };
+		0BEF3735C7014DA0E0E36778353FC060 /* FlexLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FlexLayout.swift; path = FlexLayout/Classes/FlexLayout.swift; sourceTree = "<group>"; };
 		147823415D6B3A1CE1EF20F9BC50DA74 /* Pods-FlexLayout_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlexLayout_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		28529B28CF30B07E89105AFA368930E5 /* LookinServer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LookinServer.release.xcconfig; sourceTree = "<group>"; };
-		2A4C2F8EF7C13CF01A56F2C95E34C736 /* FlexLayout-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FlexLayout-dummy.m"; sourceTree = "<group>"; };
-		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		38CE0CF6901200B078E9E3AC312EAB80 /* FlexLayout-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "FlexLayout-Info.plist"; sourceTree = "<group>"; };
+		28CDDDB6575AD00E056F3A60089AFBB2 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		456E2CF2A71DCFAC2AFE24FDAAA24A48 /* Pods-FlexLayout_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlexLayout_Example.release.xcconfig"; sourceTree = "<group>"; };
+		4623F1AFE69AB08A06A82BBBD49FA4E7 /* FlexLayout-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FlexLayout-dummy.m"; sourceTree = "<group>"; };
 		489EC09DA9802E6B8E714A2B092F64C8 /* Pods-FlexLayout_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FlexLayout_Example-frameworks.sh"; sourceTree = "<group>"; };
-		4D22C3C71074E05E6450DA1CC2480E22 /* FlexLayout-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FlexLayout-umbrella.h"; sourceTree = "<group>"; };
-		53CEFA08910700146A00F277E076750B /* FlexLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FlexLayout.swift; path = FlexLayout/Classes/FlexLayout.swift; sourceTree = "<group>"; };
+		4F8408D19C16320F44E33C8D94440D83 /* ConstraintLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayout.swift; path = FlexLayout/Classes/ConstraintLayout.swift; sourceTree = "<group>"; };
+		6A32797C4C82E50D770760E6F58B9026 /* FlexLayout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FlexLayout.release.xcconfig; sourceTree = "<group>"; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		799ACA6407000808DDF11F30A646C13C /* Pods-FlexLayout_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FlexLayout_Example-dummy.m"; sourceTree = "<group>"; };
-		834C4B3965EEEA9611C508B772996A57 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
-		878B97C48FBEE7F0ED7F8020854EEA24 /* FlexLayout-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FlexLayout-prefix.pch"; sourceTree = "<group>"; };
+		7B1B8BB98FDCF440FD669042D20F9923 /* FlexLayout-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FlexLayout-prefix.pch"; sourceTree = "<group>"; };
 		8CC3E6C8245330BDD2ADA3749409C522 /* Pods_FlexLayout_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FlexLayout_Example.framework; path = "Pods-FlexLayout_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		90B7CCF85EF54A424912B6CCFA8F144E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		93ECCA68F45D20432FDCF4A12FDB206E /* LookinServer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LookinServer.framework; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A53DD4D16F8BA8845BE0DCC7E61B9D2C /* FlexLayout-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FlexLayout-umbrella.h"; sourceTree = "<group>"; };
 		A79E2A24A8475777E93BCE79625F30A7 /* Pods-FlexLayout_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-FlexLayout_Example.modulemap"; sourceTree = "<group>"; };
 		A87C24DAA30B32D30AD06BD9047B883B /* Pods-FlexLayout_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FlexLayout_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		A9AA4E84E3A26E6707594129B4768D24 /* LookinServer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LookinServer.debug.xcconfig; sourceTree = "<group>"; };
-		B154400D21CC64A80B999E6C3B3EAE9F /* FlexLayout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FlexLayout.debug.xcconfig; sourceTree = "<group>"; };
-		B9A216639D03E4E90DF09AFFDC3A4738 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
-		BC6186F2FC1FEA8E1EFBC48E21351F25 /* FrameLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FrameLayout.swift; path = FlexLayout/Classes/FrameLayout.swift; sourceTree = "<group>"; };
-		C02C985C4770373E5A9F586A7215006C /* FlexLayout.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = FlexLayout.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		B846BE2A3B82D1AE11B366A5FF7B4A5C /* FlexLayout-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "FlexLayout-Info.plist"; sourceTree = "<group>"; };
 		C72B5FCB4FAF78A4CFE9E3AAD40B09B8 /* FlexLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FlexLayout.framework; path = FlexLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D81B049209875BBB430187B6FDB7DA66 /* FlexLayout.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FlexLayout.modulemap; sourceTree = "<group>"; };
 		E4B19FDFAA117B758E5E33815CFA868C /* Pods-FlexLayout_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FlexLayout_Example-umbrella.h"; sourceTree = "<group>"; };
+		EABE9D4B3123648A128F775B2CD8476D /* FlexLayout.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = FlexLayout.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		ED2CA63CE2A48D19864B62AC73398042 /* FlexLayout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FlexLayout.debug.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		959E00CBB9F345A63217F67A6B632A07 /* Frameworks */ = {
+		32962724583DBD572DDEFCF0104139E9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				47E3F1C39BD8DF0BE7DE52A03509BD5B /* Foundation.framework in Frameworks */,
+				392B3698173C3DBBF627A24F6A324EF4 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,7 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				795482707A8BDE71C440FAF940B1CA3E /* Foundation.framework in Frameworks */,
+				2CA76ACA2A2FBCAE19CB801A81CDB2FC /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,9 +133,24 @@
 		3DA07895948BDBB1006A21AD9081365E /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				79F0BD791A80487B6D85B72CF370EFF0 /* FlexLayout */,
+				735B99E82C28F89F4D946B5C5CAB12F0 /* FlexLayout */,
 			);
 			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		45344CBB83A7DE0B9730EB9A65F21E40 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D81B049209875BBB430187B6FDB7DA66 /* FlexLayout.modulemap */,
+				4623F1AFE69AB08A06A82BBBD49FA4E7 /* FlexLayout-dummy.m */,
+				B846BE2A3B82D1AE11B366A5FF7B4A5C /* FlexLayout-Info.plist */,
+				7B1B8BB98FDCF440FD669042D20F9923 /* FlexLayout-prefix.pch */,
+				A53DD4D16F8BA8845BE0DCC7E61B9D2C /* FlexLayout-umbrella.h */,
+				ED2CA63CE2A48D19864B62AC73398042 /* FlexLayout.debug.xcconfig */,
+				6A32797C4C82E50D770760E6F58B9026 /* FlexLayout.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/FlexLayout";
 			sourceTree = "<group>";
 		};
 		463911A867E997426DF8B9ED607A3F98 /* Support Files */ = {
@@ -165,49 +180,34 @@
 			path = "Target Support Files/Pods-FlexLayout_Example";
 			sourceTree = "<group>";
 		};
-		6FACA78CA6B0B6246F77C66A11540F11 /* Support Files */ = {
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				12AB8111F98BF03A3EF48E48C90F39AA /* FlexLayout.modulemap */,
-				2A4C2F8EF7C13CF01A56F2C95E34C736 /* FlexLayout-dummy.m */,
-				38CE0CF6901200B078E9E3AC312EAB80 /* FlexLayout-Info.plist */,
-				878B97C48FBEE7F0ED7F8020854EEA24 /* FlexLayout-prefix.pch */,
-				4D22C3C71074E05E6450DA1CC2480E22 /* FlexLayout-umbrella.h */,
-				B154400D21CC64A80B999E6C3B3EAE9F /* FlexLayout.debug.xcconfig */,
-				13EA4E1320CC98EA43D54C200BC19B81 /* FlexLayout.release.xcconfig */,
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
 			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/FlexLayout";
+			name = iOS;
 			sourceTree = "<group>";
 		};
-		79F0BD791A80487B6D85B72CF370EFF0 /* FlexLayout */ = {
+		5C8CC52113506813823239969D93A5BD /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				53CEFA08910700146A00F277E076750B /* FlexLayout.swift */,
-				BC6186F2FC1FEA8E1EFBC48E21351F25 /* FrameLayout.swift */,
-				8D847C352C40072F6F7B929EFF19BDF7 /* Pod */,
-				6FACA78CA6B0B6246F77C66A11540F11 /* Support Files */,
-			);
-			name = FlexLayout;
-			path = ../..;
-			sourceTree = "<group>";
-		};
-		8D847C352C40072F6F7B929EFF19BDF7 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				C02C985C4770373E5A9F586A7215006C /* FlexLayout.podspec */,
-				834C4B3965EEEA9611C508B772996A57 /* LICENSE */,
-				B9A216639D03E4E90DF09AFFDC3A4738 /* README.md */,
+				EABE9D4B3123648A128F775B2CD8476D /* FlexLayout.podspec */,
+				90B7CCF85EF54A424912B6CCFA8F144E /* LICENSE */,
+				28CDDDB6575AD00E056F3A60089AFBB2 /* README.md */,
 			);
 			name = Pod;
 			sourceTree = "<group>";
 		};
-		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
+		735B99E82C28F89F4D946B5C5CAB12F0 /* FlexLayout */ = {
 			isa = PBXGroup;
 			children = (
-				3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */,
+				4F8408D19C16320F44E33C8D94440D83 /* ConstraintLayout.swift */,
+				0BEF3735C7014DA0E0E36778353FC060 /* FlexLayout.swift */,
+				5C8CC52113506813823239969D93A5BD /* Pod */,
+				45344CBB83A7DE0B9730EB9A65F21E40 /* Support Files */,
 			);
-			name = iOS;
+			name = FlexLayout;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -225,7 +225,7 @@
 		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C0834CEBB1379A84116EF29F93051C60 /* iOS */,
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -251,11 +251,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D37549D9C752489BEA12CDC37D4B31F2 /* Headers */ = {
+		9F8FE208FB305E5DC89056D7C4D8D741 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D8169EFA70FD3DF9B6A51E1BA9797D8 /* Pods-FlexLayout_Example-umbrella.h in Headers */,
+				AF40563BF066F71958C7EA9A5AE37A43 /* Pods-FlexLayout_Example-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,18 +264,18 @@
 /* Begin PBXNativeTarget section */
 		75329CFC78188DDDD96F41A81E15992E /* Pods-FlexLayout_Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4C56BE44C7FA6285FBB6EC33958C5E84 /* Build configuration list for PBXNativeTarget "Pods-FlexLayout_Example" */;
+			buildConfigurationList = 939B5A5253F47D976900B6155A15D3D5 /* Build configuration list for PBXNativeTarget "Pods-FlexLayout_Example" */;
 			buildPhases = (
-				D37549D9C752489BEA12CDC37D4B31F2 /* Headers */,
-				308ABC258A584A82F69BFEA1B6C282E4 /* Sources */,
-				959E00CBB9F345A63217F67A6B632A07 /* Frameworks */,
-				B8CC420C6CDC57D1C8EAB11F4E09962C /* Resources */,
+				9F8FE208FB305E5DC89056D7C4D8D741 /* Headers */,
+				F4FB66FCFFE4477183259AAB0A338CF1 /* Sources */,
+				32962724583DBD572DDEFCF0104139E9 /* Frameworks */,
+				4E1F28470B816D1822709F05154B1F55 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				7C8ED7B7EF6099BC9C02CF99F25799B0 /* PBXTargetDependency */,
-				2AD074A7AAB6256C92B9094684EB5092 /* PBXTargetDependency */,
+				AF09EC72BC2B74EB4B873E5B304DD08F /* PBXTargetDependency */,
+				D5B6740284731F081267B31F7D3AA2E1 /* PBXTargetDependency */,
 			);
 			name = "Pods-FlexLayout_Example";
 			productName = "Pods-FlexLayout_Example";
@@ -287,7 +287,7 @@
 			buildConfigurationList = 1736B96CD514D3EE46214AAB9BB7A854 /* Build configuration list for PBXNativeTarget "FlexLayout" */;
 			buildPhases = (
 				31F3A9FD1F7F6F3FA3F502C955457DE2 /* Headers */,
-				3671A2B2829464DC730032FDBB02A6F1 /* Sources */,
+				0370D7F14314A3742E3584F265F239B6 /* Sources */,
 				EAFDF9078C2F4ED0017D94F8BF152787 /* Frameworks */,
 				E3C9D95E348D72C0BF71972BA47FC4E3 /* Resources */,
 			);
@@ -330,7 +330,7 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		B8CC420C6CDC57D1C8EAB11F4E09962C /* Resources */ = {
+		4E1F28470B816D1822709F05154B1F55 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -347,170 +347,47 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		308ABC258A584A82F69BFEA1B6C282E4 /* Sources */ = {
+		0370D7F14314A3742E3584F265F239B6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7226DF8BDBCE723FACEA888AB86ADCFE /* Pods-FlexLayout_Example-dummy.m in Sources */,
+				498DD6A5731334FE5853A1515FE095FA /* ConstraintLayout.swift in Sources */,
+				B6015054D3E7F88984B29D9F3B8D1565 /* FlexLayout-dummy.m in Sources */,
+				A7AA4BCBD3B8132C75B694942EEABC80 /* FlexLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3671A2B2829464DC730032FDBB02A6F1 /* Sources */ = {
+		F4FB66FCFFE4477183259AAB0A338CF1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08DD78CF91A993BB665F225E24341083 /* FlexLayout-dummy.m in Sources */,
-				6356B48CDF6760D84859DD86A82E8B08 /* FlexLayout.swift in Sources */,
-				1C84AAA09052BA51F25775DF753E8D7C /* FrameLayout.swift in Sources */,
+				2C55A859135E4C25F16D326E0061CA5C /* Pods-FlexLayout_Example-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2AD074A7AAB6256C92B9094684EB5092 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = LookinServer;
-			target = 638FEAAFC575BB76BC6AC055CDDA3506 /* LookinServer */;
-			targetProxy = F775095482CF213EFC0E76FF716E4C2C /* PBXContainerItemProxy */;
-		};
-		7C8ED7B7EF6099BC9C02CF99F25799B0 /* PBXTargetDependency */ = {
+		AF09EC72BC2B74EB4B873E5B304DD08F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = FlexLayout;
 			target = 9B669057662AC2963D287EC448129F48 /* FlexLayout */;
-			targetProxy = 2C461636B28499D9AD06F102A7928F63 /* PBXContainerItemProxy */;
+			targetProxy = 4259AFE7B0126804EF580F5B3AEFBF7E /* PBXContainerItemProxy */;
+		};
+		D5B6740284731F081267B31F7D3AA2E1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = LookinServer;
+			target = 638FEAAFC575BB76BC6AC055CDDA3506 /* LookinServer */;
+			targetProxy = 12B55620F3785F8E2A70705DCA9A1742 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0BBF2E73A3EB3879E23FF6C4C7BCB199 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 13EA4E1320CC98EA43D54C200BC19B81 /* FlexLayout.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/FlexLayout/FlexLayout-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/FlexLayout/FlexLayout-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/FlexLayout/FlexLayout.modulemap";
-				PRODUCT_MODULE_NAME = FlexLayout;
-				PRODUCT_NAME = FlexLayout;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		4EEB48F7D93A45D32B955DCCCDD02ACA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B154400D21CC64A80B999E6C3B3EAE9F /* FlexLayout.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/FlexLayout/FlexLayout-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/FlexLayout/FlexLayout-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/FlexLayout/FlexLayout.modulemap";
-				PRODUCT_MODULE_NAME = FlexLayout;
-				PRODUCT_NAME = FlexLayout;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		6730493796C72F035E1A2AFCE52BB49C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A9AA4E84E3A26E6707594129B4768D24 /* LookinServer.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		7F885F052E906E876DDD06206091F29D /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 28529B28CF30B07E89105AFA368930E5 /* LookinServer.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		AE35D68E5563165317BD576584C8F24D /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 456E2CF2A71DCFAC2AFE24FDAAA24A48 /* Pods-FlexLayout_Example.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-FlexLayout_Example/Pods-FlexLayout_Example-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-FlexLayout_Example/Pods-FlexLayout_Example.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		B0087CB4594321EF41619F3181FE120E /* Release */ = {
+		431BA2B8298F0EE71735B9E0114E1955 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -533,6 +410,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -567,10 +445,55 @@
 			};
 			name = Release;
 		};
-		B8BCBD0110C2658BB5DAADB9B7D97B92 /* Debug */ = {
+		46E63558C65327153AFBEE5FAB34D97A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28529B28CF30B07E89105AFA368930E5 /* LookinServer.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6B8FA038BD29FD36E4193B9DE2355A26 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED2CA63CE2A48D19864B62AC73398042 /* FlexLayout.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/FlexLayout/FlexLayout-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/FlexLayout/FlexLayout-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/FlexLayout/FlexLayout.modulemap";
+				PRODUCT_MODULE_NAME = FlexLayout;
+				PRODUCT_NAME = FlexLayout;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		79759604D78320E712558F49DF19AA9F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -593,6 +516,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -631,12 +555,88 @@
 			};
 			name = Debug;
 		};
-		F65A19924411394F021EC6F7BFDCD19D /* Debug */ = {
+		900252E2C4699524B2A95E78F3A5DB3E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A32797C4C82E50D770760E6F58B9026 /* FlexLayout.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/FlexLayout/FlexLayout-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/FlexLayout/FlexLayout-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/FlexLayout/FlexLayout.modulemap";
+				PRODUCT_MODULE_NAME = FlexLayout;
+				PRODUCT_NAME = FlexLayout;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B56E73C20B612C5DD704279CAE32513C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9AA4E84E3A26E6707594129B4768D24 /* LookinServer.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BEB47F70C55DE8046B9C956E68D22521 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 456E2CF2A71DCFAC2AFE24FDAAA24A48 /* Pods-FlexLayout_Example.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-FlexLayout_Example/Pods-FlexLayout_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-FlexLayout_Example/Pods-FlexLayout_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FD9CE065D15B0B696C5375A665A0B046 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 147823415D6B3A1CE1EF20F9BC50DA74 /* Pods-FlexLayout_Example.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -670,8 +670,8 @@
 		1736B96CD514D3EE46214AAB9BB7A854 /* Build configuration list for PBXNativeTarget "FlexLayout" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4EEB48F7D93A45D32B955DCCCDD02ACA /* Debug */,
-				0BBF2E73A3EB3879E23FF6C4C7BCB199 /* Release */,
+				6B8FA038BD29FD36E4193B9DE2355A26 /* Debug */,
+				900252E2C4699524B2A95E78F3A5DB3E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -679,17 +679,8 @@
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B8BCBD0110C2658BB5DAADB9B7D97B92 /* Debug */,
-				B0087CB4594321EF41619F3181FE120E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		4C56BE44C7FA6285FBB6EC33958C5E84 /* Build configuration list for PBXNativeTarget "Pods-FlexLayout_Example" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F65A19924411394F021EC6F7BFDCD19D /* Debug */,
-				AE35D68E5563165317BD576584C8F24D /* Release */,
+				79759604D78320E712558F49DF19AA9F /* Debug */,
+				431BA2B8298F0EE71735B9E0114E1955 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -697,8 +688,17 @@
 		74EE83670ABC31CDD77B49DA732104E8 /* Build configuration list for PBXAggregateTarget "LookinServer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6730493796C72F035E1A2AFCE52BB49C /* Debug */,
-				7F885F052E906E876DDD06206091F29D /* Release */,
+				B56E73C20B612C5DD704279CAE32513C /* Debug */,
+				46E63558C65327153AFBEE5FAB34D97A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		939B5A5253F47D976900B6155A15D3D5 /* Build configuration list for PBXNativeTarget "Pods-FlexLayout_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD9CE065D15B0B696C5375A665A0B046 /* Debug */,
+				BEB47F70C55DE8046B9C956E68D22521 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
