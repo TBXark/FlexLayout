@@ -123,6 +123,25 @@ extension FlexLayout {
         }
     }
     
+    public class Expan: FlexLayoutViewType {
+        public var view: FlexLayoutViewType
+        public var builder: (CGRect) -> Void
+        public var frame: CGRect {
+            get {
+                return view.frame
+            }
+            set {
+                view.frame = newValue
+            }
+        }
+        
+        public init(_ view: FlexLayoutViewType, maxSize: CGSize,  _ builder: @escaping (CGRect) -> Void) {
+            self.view = view
+            self.builder = builder
+            builder(CGRect(origin: .zero, size: maxSize))
+        }
+    }
+    
 }
 
 extension FlexLayout {

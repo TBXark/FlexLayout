@@ -15,6 +15,7 @@
 			dependencies = (
 			);
 			name = LookinServer;
+			productName = LookinServer;
 		};
 /* End PBXAggregateTarget section */
 
@@ -52,7 +53,7 @@
 		0BEF3735C7014DA0E0E36778353FC060 /* FlexLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FlexLayout.swift; path = FlexLayout/Classes/FlexLayout.swift; sourceTree = "<group>"; };
 		147823415D6B3A1CE1EF20F9BC50DA74 /* Pods-FlexLayout_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlexLayout_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		28529B28CF30B07E89105AFA368930E5 /* LookinServer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LookinServer.release.xcconfig; sourceTree = "<group>"; };
-		28CDDDB6575AD00E056F3A60089AFBB2 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		28CDDDB6575AD00E056F3A60089AFBB2 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		456E2CF2A71DCFAC2AFE24FDAAA24A48 /* Pods-FlexLayout_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlexLayout_Example.release.xcconfig"; sourceTree = "<group>"; };
 		4623F1AFE69AB08A06A82BBBD49FA4E7 /* FlexLayout-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FlexLayout-dummy.m"; sourceTree = "<group>"; };
 		489EC09DA9802E6B8E714A2B092F64C8 /* Pods-FlexLayout_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FlexLayout_Example-frameworks.sh"; sourceTree = "<group>"; };
@@ -61,19 +62,19 @@
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		799ACA6407000808DDF11F30A646C13C /* Pods-FlexLayout_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FlexLayout_Example-dummy.m"; sourceTree = "<group>"; };
 		7B1B8BB98FDCF440FD669042D20F9923 /* FlexLayout-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FlexLayout-prefix.pch"; sourceTree = "<group>"; };
-		8CC3E6C8245330BDD2ADA3749409C522 /* Pods_FlexLayout_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_FlexLayout_Example.framework; path = "Pods-FlexLayout_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		90B7CCF85EF54A424912B6CCFA8F144E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		8CC3E6C8245330BDD2ADA3749409C522 /* Pods_FlexLayout_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlexLayout_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		90B7CCF85EF54A424912B6CCFA8F144E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		93ECCA68F45D20432FDCF4A12FDB206E /* LookinServer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LookinServer.framework; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A53DD4D16F8BA8845BE0DCC7E61B9D2C /* FlexLayout-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FlexLayout-umbrella.h"; sourceTree = "<group>"; };
 		A79E2A24A8475777E93BCE79625F30A7 /* Pods-FlexLayout_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-FlexLayout_Example.modulemap"; sourceTree = "<group>"; };
 		A87C24DAA30B32D30AD06BD9047B883B /* Pods-FlexLayout_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FlexLayout_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		A9AA4E84E3A26E6707594129B4768D24 /* LookinServer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LookinServer.debug.xcconfig; sourceTree = "<group>"; };
 		B846BE2A3B82D1AE11B366A5FF7B4A5C /* FlexLayout-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "FlexLayout-Info.plist"; sourceTree = "<group>"; };
-		C72B5FCB4FAF78A4CFE9E3AAD40B09B8 /* FlexLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FlexLayout.framework; path = FlexLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C72B5FCB4FAF78A4CFE9E3AAD40B09B8 /* FlexLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FlexLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D81B049209875BBB430187B6FDB7DA66 /* FlexLayout.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FlexLayout.modulemap; sourceTree = "<group>"; };
 		E4B19FDFAA117B758E5E33815CFA868C /* Pods-FlexLayout_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FlexLayout_Example-umbrella.h"; sourceTree = "<group>"; };
-		EABE9D4B3123648A128F775B2CD8476D /* FlexLayout.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = FlexLayout.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		EABE9D4B3123648A128F775B2CD8476D /* FlexLayout.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = FlexLayout.podspec; sourceTree = "<group>"; tabWidth = 2; };
 		ED2CA63CE2A48D19864B62AC73398042 /* FlexLayout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FlexLayout.debug.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -236,7 +237,6 @@
 				2C07352F72EC7433A430E96413060A40 /* Frameworks */,
 				463911A867E997426DF8B9ED607A3F98 /* Support Files */,
 			);
-			name = LookinServer;
 			path = LookinServer;
 			sourceTree = "<group>";
 		};
@@ -438,8 +438,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
