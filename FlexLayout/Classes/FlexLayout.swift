@@ -91,8 +91,18 @@ public struct FlexLayout {
         case horizontal
     }
     
+    public struct Insets {
+        public static let zero = Insets(start: 0, end: 0)
+        var start: CGFloat
+        var end: CGFloat
+        public init(start: CGFloat, end: CGFloat) {
+            self.start = start
+            self.end = end
+        }
+    }
+    
     public enum Cross {
-        public static let grow = Cross.stretch(margin: UIEdgeInsets.zero)
+        public static let grow = Cross.stretch(margin: Insets.zero)
         public static func start(_ value: CGFloat) -> Cross {
             return .fixed(value, offset: 0, align: .start)
         }
@@ -104,7 +114,7 @@ public struct FlexLayout {
         }
         
         case fixed(CGFloat, offset: CGFloat, align: Align)
-        case stretch(margin: UIEdgeInsets)
+        case stretch(margin: Insets)
     }
     
     public var view: FlexLayoutViewType
@@ -191,8 +201,8 @@ extension FlexLayout {
                         l.view.frame.origin.y = end - value + offset
                     }
                 case .stretch(let margin):
-                    l.view.frame.size.height = end - start - margin.bottom - margin.top
-                    l.view.frame.origin.y = start + margin.top
+                    l.view.frame.size.height = end - start - margin.start - margin.end
+                    l.view.frame.origin.y = start + margin.start
                 }
             }
         case .vertical:
@@ -209,8 +219,8 @@ extension FlexLayout {
                         l.view.frame.origin.x = end - value + offset
                     }
                 case .stretch(let margin):
-                    l.view.frame.size.width = end - start - margin.left - margin.right
-                    l.view.frame.origin.x = start + margin.left
+                    l.view.frame.size.width = end - start - margin.start - margin.end
+                    l.view.frame.origin.x = start + margin.start
                 }
             }
         }

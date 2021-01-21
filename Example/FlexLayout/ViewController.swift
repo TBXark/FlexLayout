@@ -86,9 +86,9 @@ class ViewController: UIViewController {
                     }.stack(main: .grow)
                     FL.Space.fixed(20)
                 }
-            }.stack(main: .fixed(100), cross: .stretch(margin: UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)))
+            }.stack(main: .fixed(100), cross: .stretch(margin: FL.Insets(start: 20, end: 20)))
             FL.Space.grow()
-            bottomBar.stack(main: .fixed(60), cross: .stretch(margin: UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)))
+            bottomBar.stack(main: .fixed(60), cross: .stretch(margin: FL.Insets(start: 20, end: 20)))
             FL.Space.fixed(40)
         }
         
