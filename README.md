@@ -17,7 +17,6 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ```swift
 
-
 FL.V(frame: view.bounds) {
     FL.Space.fixed(40)
     FL.Bind(userInfoContent) { rect in
@@ -41,9 +40,9 @@ FL.V(frame: view.bounds) {
             }.stack(main: .grow)
             FL.Space.fixed(20)
         }
-    }.stack(main: .fixed(100), cross: .stretch(margin: UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)))
+    }.stack(main: .fixed(100), cross: .stretch(margin: (start: 20, end: 20)))
     FL.Space.grow()
-    bottomBar.stack(main: .fixed(60), cross: .stretch(margin: UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)))
+    bottomBar.stack(main: .fixed(60), cross: .stretch(margin: (start: 20, end: 20)))
     FL.Space.fixed(40)
 }
 
