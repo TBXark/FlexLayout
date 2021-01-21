@@ -11,48 +11,50 @@ import FlexLayout
 
 class ViewController: UIViewController {
     
+    
+    let userInfoContent = UIView().then({
+        $0.backgroundColor = UIColor(white: 0.9, alpha: 1)
+    })
+    let avatarImgv = UIImageView().then({
+        $0.backgroundColor = UIColor.darkGray
+        $0.layer.cornerRadius = 30
+        $0.layer.masksToBounds = true
+    })
+    let titleLabel = UILabel().then({
+        $0.text = "TBXark"
+        $0.textColor = UIColor.darkText
+    })
+    
+    let linkName = UILabel().then({
+        $0.text = "Github"
+        $0.textColor = UIColor.black
+        $0.font = UIFont.systemFont(ofSize: 10)
+    })
+    let linkLabel = UILabel().then({
+        $0.text = "https://github.com/tbxark"
+        $0.textColor = UIColor.blue
+        $0.font = UIFont.systemFont(ofSize: 10)
+    })
+    
+    let bottomBar = UIView().then({
+        $0.backgroundColor = UIColor.black
+        $0.layer.cornerRadius = 30
+        $0.layer.masksToBounds = true
+    })
+    
+    let clTest = UIView().then({
+        $0.backgroundColor = UIColor.yellow
+    })
+    let clTest2 = UIView().then({
+        $0.backgroundColor = UIColor.red
+    })
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor.white
         
-        let userInfoContent = UIView().then({
-            $0.backgroundColor = UIColor(white: 0.9, alpha: 1)
-        })
-        let avatarImgv = UIImageView().then({
-            $0.backgroundColor = UIColor.darkGray
-            $0.layer.cornerRadius = 30
-            $0.layer.masksToBounds = true
-        })
-        let titleLabel = UILabel().then({
-            $0.text = "TBXark"
-            $0.textColor = UIColor.darkText
-        })
-        
-        let linkName = UILabel().then({
-            $0.text = "Github"
-            $0.textColor = UIColor.black
-            $0.font = UIFont.systemFont(ofSize: 10)
-        })
-        let linkLabel = UILabel().then({
-            $0.text = "https://github.com/tbxark"
-            $0.textColor = UIColor.blue
-            $0.font = UIFont.systemFont(ofSize: 10)
-        })
-        
-        let bottomBar = UIView().then({
-            $0.backgroundColor = UIColor.black
-            $0.layer.cornerRadius = 30
-            $0.layer.masksToBounds = true
-        })
-        
-        let clTest = UIView().then({
-            $0.backgroundColor = UIColor.yellow
-        })
-        let clTest2 = UIView().then({
-            $0.backgroundColor = UIColor.red
-        })
-
         
         userInfoContent.addSubview(avatarImgv)
         userInfoContent.addSubview(titleLabel)
@@ -63,35 +65,7 @@ class ViewController: UIViewController {
         view.addSubview(clTest)
         view.addSubview(clTest2)
 
-        FL.V(frame: view.bounds) {
-            FL.Space.fixed(20)
-            FL.Bind(userInfoContent) { rect in
-                FL.H(size: rect.size) {
-                    FL.Space.fixed(20)
-                    avatarImgv.stack(main: .fixed(60), cross: .fixed(60, offset: 20, align: .start))
-                    FL.Space.fixed(20)
-                    FL.Virtual { rect in
-                        FL.V(frame: rect) {
-                            FL.Space.fixed(20)
-                            titleLabel.stack(main: .fixed(30))
-                            FL.Space.grow()
-                            FL.Virtual { rect in
-                                FL.H(frame: rect) {
-                                    linkName.stack(main: .fixed(40))
-                                    linkLabel.stack(main: .grow)
-                                }
-                            }.stack(main: .fixed(20))
-                            FL.Space.fixed(20)
-                        }
-                    }.stack(main: .grow)
-                    FL.Space.fixed(20)
-                }
-            }.stack(main: .fixed(100), cross: .stretch(margin: (start: 20, end: 20)))
-            FL.Space.grow()
-            bottomBar.stack(main: .fixed(60), cross: .stretch(margin: (start: 20, end: 20)))
-            FL.Space.fixed(40)
-        }
-        
+        reloadFlexLayout()
         
         CL.layout(clTest) {
             clTest.centerXAnchor |== view.centerXAnchor
@@ -103,6 +77,50 @@ class ViewController: UIViewController {
             clTest2.centerXAnchor |== clTest.centerXAnchor
             clTest2.bottomAnchor |== bottomBar.topAnchor
         }
+    }
+    
+    private func reloadFlexLayout() {
+        FL.V(frame: view.bounds) {
+            if #available(iOS 11.0, *) {
+                FL.Space.fixed(self.view.safeAreaInsets.top)
+            } else {
+                FL.Space.fixed(20)
+            }
+
+            FL.Bind(userInfoContent) { rect in
+                FL.H(size: rect.size) {
+                    FL.Space.fixed(20)
+                    self.avatarImgv.stack(main: .fixed(60), cross: .fixed(60, offset: 20, align: .start))
+                    FL.Space.fixed(20)
+                    FL.Virtual { rect in
+                        FL.V(frame: rect) {
+                            FL.Space.fixed(20)
+                            self.titleLabel.stack(main: .fixed(30))
+                            FL.Space.grow()
+                            FL.Virtual { rect in
+                                FL.H(frame: rect) {
+                                    self.linkName.stack(main: .fixed(40))
+                                    self.linkLabel.stack(main: .grow)
+                                }
+                            }.stack(main: .fixed(20))
+                            FL.Space.fixed(20)
+                        }
+                    }.stack(main: .grow)
+                    FL.Space.fixed(20)
+                }
+            }.stack(main: .fixed(100), cross: .stretch(margin: (start: 20, end: 20)))
+            FL.Space.grow()
+            self.bottomBar.stack(main: .fixed(60), cross: .stretch(margin: (start: 20, end: 20)))
+            if #available(iOS 11.0, *) {
+                FL.Space.fixed(self.view.safeAreaInsets.bottom)
+            } else {
+                FL.Space.fixed(20)
+            }
+        }
+    }
+    
+    override func viewSafeAreaInsetsDidChange() {
+        reloadFlexLayout()
     }
     
     override func didReceiveMemoryWarning() {

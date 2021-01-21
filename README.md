@@ -18,21 +18,26 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 ```swift
 
 FL.V(frame: view.bounds) {
-    FL.Space.fixed(40)
+    if #available(iOS 11.0, *) {
+        FL.Space.fixed(self.view.safeAreaInsets.top)
+    } else {
+        FL.Space.fixed(20)
+    }
+
     FL.Bind(userInfoContent) { rect in
         FL.H(size: rect.size) {
             FL.Space.fixed(20)
-            avatarImgv.stack(main: .fixed(60), cross: .fixed(60, offset: 20, align: .start))
+            self.avatarImgv.stack(main: .fixed(60), cross: .fixed(60, offset: 20, align: .start))
             FL.Space.fixed(20)
             FL.Virtual { rect in
                 FL.V(frame: rect) {
                     FL.Space.fixed(20)
-                    titleLabel.stack(main: .fixed(30))
+                    self.titleLabel.stack(main: .fixed(30))
                     FL.Space.grow()
                     FL.Virtual { rect in
                         FL.H(frame: rect) {
-                            linkName.stack(main: .fixed(40))
-                            linkLabel.stack(main: .grow)
+                            self.linkName.stack(main: .fixed(40))
+                            self.linkLabel.stack(main: .grow)
                         }
                     }.stack(main: .fixed(20))
                     FL.Space.fixed(20)
@@ -42,10 +47,13 @@ FL.V(frame: view.bounds) {
         }
     }.stack(main: .fixed(100), cross: .stretch(margin: (start: 20, end: 20)))
     FL.Space.grow()
-    bottomBar.stack(main: .fixed(60), cross: .stretch(margin: (start: 20, end: 20)))
-    FL.Space.fixed(40)
+    self.bottomBar.stack(main: .fixed(60), cross: .stretch(margin: (start: 20, end: 20)))
+    if #available(iOS 11.0, *) {
+        FL.Space.fixed(self.view.safeAreaInsets.bottom)
+    } else {
+        FL.Space.fixed(20)
+    }
 }
-
 
 CL.layout(clTest) {
     clTest.centerXAnchor |== view.centerXAnchor
