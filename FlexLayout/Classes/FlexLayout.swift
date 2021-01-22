@@ -128,8 +128,7 @@ extension FlexLayout {
         public var frame: CGRect = .zero
         public var builder: (CGRect) -> Void
         
-        public init(_ frame: CGRect = .zero, _ builder: @escaping (CGRect) -> Void) {
-            self.frame = frame
+        public init(_ builder: @escaping (CGRect) -> Void) {
             self.builder = builder
         }
     }
@@ -153,7 +152,6 @@ extension FlexLayout {
             self.builder = builder
         }
     }
-    
 }
 
 extension FlexLayout {
@@ -255,6 +253,47 @@ extension FlexLayout {
             }
         }
     }
+
+    /// Layout stack
+    /// - Parameters:
+    ///   - direction: Main axis direction
+    ///   - align: Main axis align
+    ///   - ms: Main axis start value
+    ///   - me: Main axis end value
+    ///   - cs: Corss axis start value
+    ///   - ce: Corss axis end value
+    ///   - builder: builder
+    public static func layout(_ direction: FlexLayout.Direction, align: FlexLayout.Align = .start, ms: CGFloat = 0, me: CGFloat, cs: CGFloat = 0, ce: CGFloat, @FlexLayout _ builder: () -> [FlexLayout]) {
+        let layout = builder().flatMap({ $0.flatten() })
+        FlexLayout.layoutMainAxis(layouts: layout, direction: direction, align: align, start: ms, end: me)
+        FlexLayout.layoutCorssAxis(layouts: layout, direction: direction, start: cs, end: ce)
+        for l in layout {
+            if let v = l.view as? FlexLayoutBuilderContainer {
+                v.builder(v.frame)
+            }
+        }
+    }
+}
+
+
+extension FlexLayout {
+    
+    public static func H(_ align: FlexLayout.Align = .start,  frame: CGRect, @FlexLayout _ builder: () -> [FlexLayout]) {
+        layout(.horizontal, align: align, ms: frame.minX, me: frame.maxX, cs: frame.minY, ce: frame.maxY, builder)
+    }
+    
+    public static func H(_ align: FlexLayout.Align = .start,  size: CGSize, @FlexLayout _ builder: () -> [FlexLayout]) {
+        layout(.horizontal, align: align, ms: 0, me: size.width, cs: 0, ce: size.height, builder)
+    }
+    
+    public static func V(_ align: FlexLayout.Align = .start,  frame: CGRect, @FlexLayout _ builder: () -> [FlexLayout]) {
+        layout(.vertical, align: align, ms: frame.minY, me: frame.maxY, cs: frame.minX, ce: frame.maxX, builder)
+    }
+    
+    public static func V(_ align: FlexLayout.Align = .start,  size: CGSize, @FlexLayout _ builder: () -> [FlexLayout]) {
+        layout(.vertical, align: align, ms: 0, me: size.height, cs: 0, ce: size.width, builder)
+    }
+    
     
     public static func layout(_ direction: FlexLayout.Direction, align: FlexLayout.Align = .start, frame: CGRect, @FlexLayout _ builder: () -> [FlexLayout]) {
         switch direction {
@@ -275,39 +314,4 @@ extension FlexLayout {
     }
     
     
-    public static func H(_ align: FlexLayout.Align = .start,  frame: CGRect, @FlexLayout _ builder: () -> [FlexLayout]) {
-        layout(.horizontal, align: align, ms: frame.minX, me: frame.maxX, cs: frame.minY, ce: frame.maxY, builder)
-    }
-    
-    public static func H(_ align: FlexLayout.Align = .start,  size: CGSize, @FlexLayout _ builder: () -> [FlexLayout]) {
-        layout(.horizontal, align: align, ms: 0, me: size.width, cs: 0, ce: size.height, builder)
-    }
-    
-    public static func V(_ align: FlexLayout.Align = .start,  frame: CGRect, @FlexLayout _ builder: () -> [FlexLayout]) {
-        layout(.vertical, align: align, ms: frame.minY, me: frame.maxY, cs: frame.minX, ce: frame.maxX, builder)
-    }
-    
-    public static func V(_ align: FlexLayout.Align = .start,  size: CGSize, @FlexLayout _ builder: () -> [FlexLayout]) {
-        layout(.vertical, align: align, ms: 0, me: size.height, cs: 0, ce: size.width, builder)
-    }
-    
-    /// Layout stack
-    /// - Parameters:
-    ///   - direction: Main axis direction
-    ///   - align: Main axis align
-    ///   - ms: Main axis start value
-    ///   - me: Main axis end value
-    ///   - cs: Corss axis start value
-    ///   - ce: Corss axis end value
-    ///   - builder: builder
-    public static func layout(_ direction: FlexLayout.Direction, align: FlexLayout.Align = .start, ms: CGFloat = 0, me: CGFloat, cs: CGFloat = 0, ce: CGFloat, @FlexLayout _ builder: () -> [FlexLayout]) {
-        let layout = builder().flatMap({ $0.flatten() })
-        FlexLayout.layoutMainAxis(layouts: layout, direction: direction, align: align, start: ms, end: me)
-        FlexLayout.layoutCorssAxis(layouts: layout, direction: direction, start: cs, end: ce)
-        for l in layout {
-            if let v = l.view as? FlexLayoutBuilderContainer {
-                v.builder(v.frame)
-            }
-        }
-    }
 }
