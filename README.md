@@ -1,11 +1,5 @@
 # FlexLayout
 
-[![CI Status](https://img.shields.io/travis/tbxark/FlexLayout.svg?style=flat)](https://travis-ci.org/tbxark/FlexLayout)
-[![Version](https://img.shields.io/cocoapods/v/FlexLayout.svg?style=flat)](https://cocoapods.org/pods/FlexLayout)
-[![License](https://img.shields.io/cocoapods/l/FlexLayout.svg?style=flat)](https://cocoapods.org/pods/FlexLayout)
-[![Platform](https://img.shields.io/cocoapods/p/FlexLayout.svg?style=flat)](https://cocoapods.org/pods/FlexLayout)
-
-
 `FlexLayout` is a flexible layout tool similar to SwiftUI syntax， `ConstraintLayout` is the syntactic sugar of  `NSLayoutAnchor`.
 
 ## Example
