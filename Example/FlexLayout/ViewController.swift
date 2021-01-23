@@ -73,7 +73,8 @@ class ViewController: UIViewController {
             (clTest.heightAnchor & clTest.widthAnchor) |== 100
         }
         CL.layout(clTest2) {
-            clTest2.sizeAnchor |== clTest.widthAnchor
+            clTest2.heightAnchor |== clTest.widthAnchor
+            clTest2.widthAnchor |== clTest.widthAnchor * 2 + 100
             clTest2.centerXAnchor |== clTest.centerXAnchor
             clTest2.bottomAnchor |== bottomBar.topAnchor
         }
