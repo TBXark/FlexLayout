@@ -37,7 +37,7 @@ extension UIView {
     }
 }
 
-@_functionBuilder
+@resultBuilder
 public struct ConstraintLayout {
     
     public static func buildBlock(_ components: ConstraintLayoutValue...) -> [NSLayoutConstraint] {
