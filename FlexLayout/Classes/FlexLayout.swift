@@ -11,7 +11,7 @@ import UIKit
 public typealias FL = FlexLayout
 
 // MARK: - FlexLayoutViewType
-public protocol FlexLayoutViewType: class {
+public protocol FlexLayoutViewType: AnyObject {
     var frame: CGRect { get set }
 }
 
@@ -39,7 +39,7 @@ extension Array: _FlexLayout where Element: _FlexLayout {
 }
 
 // MARK: - FlexLayout
-@_functionBuilder
+@resultBuilder
 public struct FlexLayout: _FlexLayout {
        
     public var view: FlexLayoutViewType
