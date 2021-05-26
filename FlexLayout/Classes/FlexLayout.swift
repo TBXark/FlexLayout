@@ -213,7 +213,7 @@ extension FlexLayout {
         }
     }
     
-    private static func layoutCorssAxis(layouts: [FlexLayout], direction: FlexLayout.Direction,  start: CGFloat, end: CGFloat) {
+     private static func layoutCorssAxis(layouts: [FlexLayout], direction: FlexLayout.Direction,  start: CGFloat, end: CGFloat) {
         switch direction {
         case .horizontal:
             for l in layouts {
@@ -224,9 +224,9 @@ extension FlexLayout {
                     case .start:
                         l.view.frame.origin.y = start + offset
                     case .center:
-                        l.view.frame.origin.y = ((end - start) - value) / 2 + offset
+                        l.view.frame.origin.y = start + ((end - start) - (offset + value))/2
                     case .end:
-                        l.view.frame.origin.y = end - value + offset
+                        l.view.frame.origin.y = end - value - offset
                     }
                 case .stretch(let margin):
                     l.view.frame.size.height = end - start - margin.start - margin.end
@@ -242,9 +242,9 @@ extension FlexLayout {
                     case .start:
                         l.view.frame.origin.x = start + offset
                     case .center:
-                        l.view.frame.origin.x = ((end - start) - value) / 2 + offset
+                        l.view.frame.origin.x = start + ((end - start) - (offset + value))/2
                     case .end:
-                        l.view.frame.origin.x = end - value + offset
+                        l.view.frame.origin.x = end - value - offset
                     }
                 case .stretch(let margin):
                     l.view.frame.size.width = end - start - margin.start - margin.end
