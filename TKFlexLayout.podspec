@@ -7,7 +7,7 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'FlexLayout'
+  s.name             = 'TKFlexLayout'
   s.version          = '1.0.0'
   s.summary          = 'A simple flexLayout tool.'
   s.description      = 'A simple flexLayout tool by Swift'
@@ -16,5 +16,6 @@ Pod::Spec.new do |s|
   s.author           = { 'tbxark' => 'tbxark@outlook.com' }
   s.source           = { :git => 'https://github.com/tbxark/FlexLayout.git', :tag => s.version.to_s }
   s.ios.deployment_target = '9.0'
+  s.module_name = 'FlexLayout'
   s.source_files = 'FlexLayout/Classes/**/*'
 end
