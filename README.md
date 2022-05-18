@@ -72,7 +72,7 @@ FlexLayout is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'FlexLayout', :git=>'https://github.com/tbxark/FlexLayout.git'
+pod 'TKFlexLayout', :git=>'https://github.com/tbxark/FlexLayout.git'
 ```
 
 ## Author
