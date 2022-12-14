@@ -156,7 +156,12 @@ extension FlexLayout {
 
 extension FlexLayout {
     private static func layoutMainAxis(layouts: [FlexLayout], direction: FlexLayout.Direction, align: FlexLayout.Align, start: CGFloat, end: CGFloat) {
-        
+        guard end >= start else {
+            #if DEBUG
+            print("Exception: check your main axis layout, end is smaller than start")
+            #endif
+            return
+        }
         var totalSize = CGFloat.zero
         var totalGrow = CGFloat.zero
         
@@ -214,6 +219,12 @@ extension FlexLayout {
     }
     
      private static func layoutCorssAxis(layouts: [FlexLayout], direction: FlexLayout.Direction,  start: CGFloat, end: CGFloat) {
+        guard end >= start else {
+            #if DEBUG
+            print("Exception: check your cross axis layout, end is smaller than start")
+            #endif
+            return
+        }
         switch direction {
         case .horizontal:
             for l in layouts {
