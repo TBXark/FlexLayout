@@ -160,16 +160,7 @@ extension FlexLayout {
         case valueIsInfinite
         case valueIsNegative
     }
-    
-    private static func checkCGFloatIsVaild(_ value: CGFloat) throws -> CGFloat {
-        if value.isNaN {
-            throw FlexLayoutError.valueIsNaN
-        } else if value.isInfinite {
-            throw FlexLayoutError.valueIsInfinite
-        }
-        return value
-    }
-    
+
     private static func checkCGFloatIsVaildAndNotNegative(_ value: CGFloat) throws -> CGFloat {
         if value.isNaN {
             throw FlexLayoutError.valueIsNaN
@@ -189,22 +180,22 @@ extension FlexLayout {
         for l in layouts {
             switch l.main {
             case .fixed(let value):
-                totalSize += try checkCGFloatIsVaild(value)
+                totalSize += value
             case .stretch(let scale):
-                totalGrow += try checkCGFloatIsVaild(scale)
+                totalGrow += scale
             }
         }
         let growValue = try checkCGFloatIsVaildAndNotNegative((end - start - totalSize) / totalGrow)
-        var startPosition = try checkCGFloatIsVaild(start)
+        var startPosition = start
         
         if totalGrow.isZero {
             switch align {
             case .start:
-                startPosition = try checkCGFloatIsVaild(start)
+                startPosition = start
             case .center:
-                startPosition = try checkCGFloatIsVaild(start + (end - start - totalSize) / 2)
+                startPosition = start + (end - start - totalSize) / 2
             case .end:
-                startPosition = try checkCGFloatIsVaild((end - totalSize))
+                startPosition = end - totalSize
             }
         }
         
@@ -213,26 +204,26 @@ extension FlexLayout {
             for l in layouts {
                 switch l.main {
                 case .stretch(let scale):
-                    l.view.frame.origin.x = try checkCGFloatIsVaild(startPosition)
+                    l.view.frame.origin.x = startPosition
                     l.view.frame.size.width = try checkCGFloatIsVaildAndNotNegative(scale * growValue)
-                    startPosition = try checkCGFloatIsVaild(l.view.frame.maxX)
+                    startPosition = l.view.frame.maxX
                 case .fixed(let value):
-                    l.view.frame.origin.x = try checkCGFloatIsVaild(startPosition)
+                    l.view.frame.origin.x = startPosition
                     l.view.frame.size.width = try checkCGFloatIsVaildAndNotNegative(value)
-                    startPosition = try checkCGFloatIsVaild(l.view.frame.maxX)
+                    startPosition = l.view.frame.maxX
                 }
             }
         case .vertical:
             for l in layouts {
                 switch l.main {
                 case .stretch(let scale):
-                    l.view.frame.origin.y = try checkCGFloatIsVaild(startPosition)
+                    l.view.frame.origin.y = startPosition
                     l.view.frame.size.height = try checkCGFloatIsVaildAndNotNegative(scale * growValue)
-                    startPosition = try checkCGFloatIsVaild(l.view.frame.maxY)
+                    startPosition = l.view.frame.maxY
                 case .fixed(let value):
-                    l.view.frame.origin.y = try checkCGFloatIsVaild(startPosition)
+                    l.view.frame.origin.y = startPosition
                     l.view.frame.size.height = try checkCGFloatIsVaildAndNotNegative(value)
-                    startPosition = try checkCGFloatIsVaild(l.view.frame.maxY)
+                    startPosition = l.view.frame.maxY
                 }
             }
             
@@ -248,15 +239,15 @@ extension FlexLayout {
                     l.view.frame.size.height = try checkCGFloatIsVaildAndNotNegative(value)
                     switch align {
                     case .start:
-                        l.view.frame.origin.y = try checkCGFloatIsVaild(start + offset)
+                        l.view.frame.origin.y = start + offset
                     case .center:
-                        l.view.frame.origin.y = try checkCGFloatIsVaild(start + ((end - start) - (offset + value))/2)
+                        l.view.frame.origin.y = start + ((end - start) - (offset + value))/2
                     case .end:
-                        l.view.frame.origin.y = try checkCGFloatIsVaild(end - value - offset)
+                        l.view.frame.origin.y = end - value - offset
                     }
                 case .stretch(let margin):
                     l.view.frame.size.height = try checkCGFloatIsVaildAndNotNegative(end - start - margin.start - margin.end)
-                    l.view.frame.origin.y = try checkCGFloatIsVaild(start + margin.start)
+                    l.view.frame.origin.y = start + margin.start
                 }
             }
         case .vertical:
@@ -266,15 +257,15 @@ extension FlexLayout {
                     l.view.frame.size.width = try checkCGFloatIsVaildAndNotNegative(value)
                     switch align {
                     case .start:
-                        l.view.frame.origin.x = try checkCGFloatIsVaild(start + offset)
+                        l.view.frame.origin.x = start + offset
                     case .center:
-                        l.view.frame.origin.x = try checkCGFloatIsVaild(start + ((end - start) - (offset + value))/2)
+                        l.view.frame.origin.x = start + ((end - start) - (offset + value))/2
                     case .end:
-                        l.view.frame.origin.x = try checkCGFloatIsVaild(end - value - offset)
+                        l.view.frame.origin.x = end - value - offset
                     }
                 case .stretch(let margin):
                     l.view.frame.size.width = try checkCGFloatIsVaildAndNotNegative(end - start - margin.start - margin.end)
-                    l.view.frame.origin.x = try checkCGFloatIsVaild(start + margin.start)
+                    l.view.frame.origin.x = start + margin.start
                 }
             }
         }
