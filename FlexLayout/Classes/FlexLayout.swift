@@ -309,7 +309,7 @@ extension FlexLayout {
     }
     
     @discardableResult public static func H(_ align: FlexLayout.Align = .start,  size: CGSize, @FlexLayout _ builder: () -> [FlexLayout]) -> Error?  {
-        return layout(.vertical, align: align, size: size, builder)
+        return layout(.horizontal, align: align, size: size, builder)
     }
     
     @discardableResult public static func V(_ align: FlexLayout.Align = .start,  frame: CGRect, @FlexLayout _ builder: () -> [FlexLayout]) -> Error? {
@@ -317,7 +317,7 @@ extension FlexLayout {
     }
     
     @discardableResult public static func V(_ align: FlexLayout.Align = .start,  size: CGSize, @FlexLayout _ builder: () -> [FlexLayout]) -> Error? {
-        return layout(.horizontal, align: align, size: size, builder)
+        return layout(.vertical, align: align, size: size, builder)
     }
         
     @discardableResult public static func layout(_ direction: FlexLayout.Direction, align: FlexLayout.Align = .start, size: CGSize, @FlexLayout _ builder: () -> [FlexLayout]) -> Error? {
