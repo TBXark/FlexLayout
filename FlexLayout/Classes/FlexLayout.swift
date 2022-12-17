@@ -155,35 +155,56 @@ extension FlexLayout {
 }
 
 extension FlexLayout {
-    private static func layoutMainAxis(layouts: [FlexLayout], direction: FlexLayout.Direction, align: FlexLayout.Align, start: CGFloat, end: CGFloat) {
-        guard end >= start else {
-            #if DEBUG
-            print("Exception: check your main axis layout, end is smaller than start")
-            #endif
-            return
+    enum FlexLayoutError: String, Error {
+        case valueIsNaN
+        case valueIsInfinite
+        case valueIsNegative
+    }
+    
+    private static func checkCGFloatIsVaild(_ value: CGFloat) throws -> CGFloat {
+        if value.isNaN {
+            throw FlexLayoutError.valueIsNaN
+        } else if value.isInfinite {
+            throw FlexLayoutError.valueIsInfinite
         }
+        return value
+    }
+    
+    private static func checkCGFloatIsVaildAndNotNegative(_ value: CGFloat) throws -> CGFloat {
+        if value.isNaN {
+            throw FlexLayoutError.valueIsNaN
+        } else if value.isInfinite {
+            throw FlexLayoutError.valueIsInfinite
+        } else if value < 0 {
+            throw FlexLayoutError.valueIsNegative
+        }
+        return value
+    }
+    
+    
+    private static func layoutMainAxis(layouts: [FlexLayout], direction: FlexLayout.Direction, align: FlexLayout.Align, start: CGFloat, end: CGFloat) throws {
         var totalSize = CGFloat.zero
         var totalGrow = CGFloat.zero
         
         for l in layouts {
             switch l.main {
             case .fixed(let value):
-                totalSize += value
+                totalSize += try checkCGFloatIsVaild(value)
             case .stretch(let scale):
-                totalGrow += scale
+                totalGrow += try checkCGFloatIsVaild(scale)
             }
         }
-        let growValue = (end - start - totalSize) / totalGrow
-        var startPosition = start
+        let growValue = try checkCGFloatIsVaildAndNotNegative((end - start - totalSize) / totalGrow)
+        var startPosition = try checkCGFloatIsVaild(start)
         
         if totalGrow.isZero {
             switch align {
             case .start:
-                startPosition = start
+                startPosition = try checkCGFloatIsVaild(start)
             case .center:
-                startPosition = start + (end - start - totalSize) / 2
+                startPosition = try checkCGFloatIsVaild(start + (end - start - totalSize) / 2)
             case .end:
-                startPosition = (end - totalSize)
+                startPosition = try checkCGFloatIsVaild((end - totalSize))
             }
         }
         
@@ -192,74 +213,68 @@ extension FlexLayout {
             for l in layouts {
                 switch l.main {
                 case .stretch(let scale):
-                    l.view.frame.origin.x = startPosition
-                    l.view.frame.size.width = scale * growValue
-                    startPosition = l.view.frame.maxX
+                    l.view.frame.origin.x = try checkCGFloatIsVaild(startPosition)
+                    l.view.frame.size.width = try checkCGFloatIsVaildAndNotNegative(scale * growValue)
+                    startPosition = try checkCGFloatIsVaild(l.view.frame.maxX)
                 case .fixed(let value):
-                    l.view.frame.origin.x = startPosition
-                    l.view.frame.size.width = value
-                    startPosition = l.view.frame.maxX
+                    l.view.frame.origin.x = try checkCGFloatIsVaild(startPosition)
+                    l.view.frame.size.width = try checkCGFloatIsVaildAndNotNegative(value)
+                    startPosition = try checkCGFloatIsVaild(l.view.frame.maxX)
                 }
             }
         case .vertical:
             for l in layouts {
                 switch l.main {
                 case .stretch(let scale):
-                    l.view.frame.origin.y = startPosition
-                    l.view.frame.size.height = scale * growValue
-                    startPosition = l.view.frame.maxY
+                    l.view.frame.origin.y = try checkCGFloatIsVaild(startPosition)
+                    l.view.frame.size.height = try checkCGFloatIsVaildAndNotNegative(scale * growValue)
+                    startPosition = try checkCGFloatIsVaild(l.view.frame.maxY)
                 case .fixed(let value):
-                    l.view.frame.origin.y = startPosition
-                    l.view.frame.size.height = value
-                    startPosition = l.view.frame.maxY
+                    l.view.frame.origin.y = try checkCGFloatIsVaild(startPosition)
+                    l.view.frame.size.height = try checkCGFloatIsVaildAndNotNegative(value)
+                    startPosition = try checkCGFloatIsVaild(l.view.frame.maxY)
                 }
             }
             
         }
     }
     
-     private static func layoutCorssAxis(layouts: [FlexLayout], direction: FlexLayout.Direction,  start: CGFloat, end: CGFloat) {
-        guard end >= start else {
-            #if DEBUG
-            print("Exception: check your cross axis layout, end is smaller than start")
-            #endif
-            return
-        }
+     private static func layoutCorssAxis(layouts: [FlexLayout], direction: FlexLayout.Direction,  start: CGFloat, end: CGFloat) throws {
         switch direction {
         case .horizontal:
             for l in layouts {
                 switch l.cross {
                 case .fixed(let value, let offset, let align):
-                    l.view.frame.size.height = value
+                    l.view.frame.size.height = try checkCGFloatIsVaildAndNotNegative(value)
                     switch align {
                     case .start:
-                        l.view.frame.origin.y = start + offset
+                        l.view.frame.origin.y = try checkCGFloatIsVaild(start + offset)
                     case .center:
-                        l.view.frame.origin.y = start + ((end - start) - (offset + value))/2
+                        l.view.frame.origin.y = try checkCGFloatIsVaild(start + ((end - start) - (offset + value))/2)
                     case .end:
-                        l.view.frame.origin.y = end - value - offset
+                        l.view.frame.origin.y = try checkCGFloatIsVaild(end - value - offset)
                     }
                 case .stretch(let margin):
-                    l.view.frame.size.height = end - start - margin.start - margin.end
-                    l.view.frame.origin.y = start + margin.start
+                    l.view.frame.size.height = try checkCGFloatIsVaildAndNotNegative(end - start - margin.start - margin.end)
+                    l.view.frame.origin.y = try checkCGFloatIsVaild(start + margin.start)
                 }
             }
         case .vertical:
             for l in layouts {
                 switch l.cross {
                 case .fixed(let value, let offset, let align):
-                    l.view.frame.size.width = value
+                    l.view.frame.size.width = try checkCGFloatIsVaildAndNotNegative(value)
                     switch align {
                     case .start:
-                        l.view.frame.origin.x = start + offset
+                        l.view.frame.origin.x = try checkCGFloatIsVaild(start + offset)
                     case .center:
-                        l.view.frame.origin.x = start + ((end - start) - (offset + value))/2
+                        l.view.frame.origin.x = try checkCGFloatIsVaild(start + ((end - start) - (offset + value))/2)
                     case .end:
-                        l.view.frame.origin.x = end - value - offset
+                        l.view.frame.origin.x = try checkCGFloatIsVaild(end - value - offset)
                     }
                 case .stretch(let margin):
-                    l.view.frame.size.width = end - start - margin.start - margin.end
-                    l.view.frame.origin.x = start + margin.start
+                    l.view.frame.size.width = try checkCGFloatIsVaildAndNotNegative(end - start - margin.start - margin.end)
+                    l.view.frame.origin.x = try checkCGFloatIsVaild(start + margin.start)
                 }
             }
         }
@@ -274,10 +289,10 @@ extension FlexLayout {
     ///   - cs: Corss axis start value
     ///   - ce: Corss axis end value
     ///   - builder: builder
-    public static func layout(_ direction: FlexLayout.Direction, align: FlexLayout.Align = .start, ms: CGFloat = 0, me: CGFloat, cs: CGFloat = 0, ce: CGFloat, @FlexLayout _ builder: () -> [FlexLayout]) {
+    public static func layout(_ direction: FlexLayout.Direction, align: FlexLayout.Align = .start, ms: CGFloat = 0, me: CGFloat, cs: CGFloat = 0, ce: CGFloat, @FlexLayout _ builder: () -> [FlexLayout]) throws {
         let layout = builder().flatMap({ $0.flatten() })
-        FlexLayout.layoutMainAxis(layouts: layout, direction: direction, align: align, start: ms, end: me)
-        FlexLayout.layoutCorssAxis(layouts: layout, direction: direction, start: cs, end: ce)
+        try FlexLayout.layoutMainAxis(layouts: layout, direction: direction, align: align, start: ms, end: me)
+        try FlexLayout.layoutCorssAxis(layouts: layout, direction: direction, start: cs, end: ce)
         for l in layout {
             if let v = l.view as? FlexLayoutBuilderContainer {
                 v.builder(v.frame)
@@ -289,40 +304,38 @@ extension FlexLayout {
 
 extension FlexLayout {
     
-    public static func H(_ align: FlexLayout.Align = .start,  frame: CGRect, @FlexLayout _ builder: () -> [FlexLayout]) {
-        layout(.horizontal, align: align, ms: frame.minX, me: frame.maxX, cs: frame.minY, ce: frame.maxY, builder)
+    @discardableResult public static func H(_ align: FlexLayout.Align = .start,  frame: CGRect, @FlexLayout _ builder: () -> [FlexLayout]) -> Error? {
+        return layout(.horizontal, align: align, frame: frame, builder)
     }
     
-    public static func H(_ align: FlexLayout.Align = .start,  size: CGSize, @FlexLayout _ builder: () -> [FlexLayout]) {
-        layout(.horizontal, align: align, ms: 0, me: size.width, cs: 0, ce: size.height, builder)
+    @discardableResult public static func H(_ align: FlexLayout.Align = .start,  size: CGSize, @FlexLayout _ builder: () -> [FlexLayout]) -> Error?  {
+        return layout(.vertical, align: align, size: size, builder)
     }
     
-    public static func V(_ align: FlexLayout.Align = .start,  frame: CGRect, @FlexLayout _ builder: () -> [FlexLayout]) {
-        layout(.vertical, align: align, ms: frame.minY, me: frame.maxY, cs: frame.minX, ce: frame.maxX, builder)
+    @discardableResult public static func V(_ align: FlexLayout.Align = .start,  frame: CGRect, @FlexLayout _ builder: () -> [FlexLayout]) -> Error? {
+        return layout(.vertical, align: align, frame: frame, builder)
     }
     
-    public static func V(_ align: FlexLayout.Align = .start,  size: CGSize, @FlexLayout _ builder: () -> [FlexLayout]) {
-        layout(.vertical, align: align, ms: 0, me: size.height, cs: 0, ce: size.width, builder)
+    @discardableResult public static func V(_ align: FlexLayout.Align = .start,  size: CGSize, @FlexLayout _ builder: () -> [FlexLayout]) -> Error? {
+        return layout(.horizontal, align: align, size: size, builder)
+    }
+        
+    @discardableResult public static func layout(_ direction: FlexLayout.Direction, align: FlexLayout.Align = .start, size: CGSize, @FlexLayout _ builder: () -> [FlexLayout]) -> Error? {
+        return layout(direction, align: align, frame: CGRect(origin: CGPoint.zero, size: size), builder)
     }
     
-    
-    public static func layout(_ direction: FlexLayout.Direction, align: FlexLayout.Align = .start, frame: CGRect, @FlexLayout _ builder: () -> [FlexLayout]) {
-        switch direction {
-        case .horizontal:
-            layout(direction, align: align, ms: frame.minX, me: frame.maxX, cs: frame.minY, ce: frame.maxY, builder)
-        case .vertical:
-            layout(direction, align: align, ms: frame.minY, me: frame.maxY, cs: frame.minX, ce: frame.maxX, builder)
+    @discardableResult public static func layout(_ direction: FlexLayout.Direction, align: FlexLayout.Align = .start, frame: CGRect, @FlexLayout _ builder: () -> [FlexLayout]) -> Error? {
+        var result: Error?
+        do {
+            switch direction {
+            case .horizontal:
+                try layout(direction, align: align, ms: frame.minX, me: frame.maxX, cs: frame.minY, ce: frame.maxY, builder)
+            case .vertical:
+                try layout(direction, align: align, ms: frame.minY, me: frame.maxY, cs: frame.minX, ce: frame.maxX, builder)
+            }
+        } catch {
+            result = error
         }
+        return result
     }
-    
-    public static func layout(_ direction: FlexLayout.Direction, align: FlexLayout.Align = .start, size: CGSize, @FlexLayout _ builder: () -> [FlexLayout]) {
-        switch direction {
-        case .horizontal:
-            layout(direction, align: align, ms: 0, me: size.width, cs: 0, ce: size.height, builder)
-        case .vertical:
-            layout(direction, align: align, ms: 0, me: size.height, cs: 0, ce: size.width, builder)
-        }
-    }
-    
-    
 }
