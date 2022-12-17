@@ -185,7 +185,7 @@ extension FlexLayout {
                 totalGrow += scale
             }
         }
-        let growValue = try checkCGFloatIsVaildAndNotNegative((end - start - totalSize) / totalGrow)
+        let growValue = totalGrow.isZero ? 0 : try checkCGFloatIsVaildAndNotNegative((end - start - totalSize) / totalGrow)
         var startPosition = start
         
         if totalGrow.isZero {
